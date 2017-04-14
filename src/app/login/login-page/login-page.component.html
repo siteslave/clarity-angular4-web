@@ -1,0 +1,30 @@
+<clr-main-container>
+  <clr-header class="header-4">
+  <div class="branding">
+    <a class="nav-link">
+      <clr-icon shape="shield"></clr-icon>
+      <span class="title">My Apps</span>
+    </a>
+  </div>
+</clr-header>
+<div class="login-wrapper">
+    <form class="login">
+        <label class="title">
+            My Apps&#174;
+        </label>
+        <div class="login-group">
+            <input (keypress)="enterLogin($event)" class="username" [(ngModel)]="username" type="text" name="login_username" placeholder="Username">
+            <input (keypress)="enterLogin($event)" class="password" [(ngModel)]="password" type="password" name="login_password" placeholder="Password">
+            <div style="text-align: center" *ngIf="isLogging">
+              <span class="spinner spinner-inline">
+                  Loading...
+              </span>
+              <span>
+                  Logging in...
+              </span>
+            </div>
+            <button type="button" (click)="doLogin()" class="btn btn-primary" [disabled]="!username || !password || isLogging">LOG IN</button>
+        </div>
+    </form>
+</div>
+</clr-main-container>

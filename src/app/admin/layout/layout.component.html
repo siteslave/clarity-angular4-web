@@ -1,0 +1,129 @@
+<clr-main-container>
+  <clr-header class="header-4">
+    <div class="branding">
+      <a class="nav-link">
+        <clr-icon shape="storage"></clr-icon>
+        <span class="title">My Apps</span>
+      </a>
+    </div>
+    <div class="header-nav">
+      <a class=" nav-link nav-icon" routerLink='/admin/main' routerLinkActive='active'>
+        <clr-icon shape="home"></clr-icon>
+      </a>
+      <a class=" nav-link nav-icon" routerLink='/admin/labeler' routerLinkActive='active'>
+        <clr-icon shape="group"></clr-icon>
+      </a>
+      <a class=" nav-link nav-icon" routerLink='/admin/generice-medicine' routerLinkActive='active'>
+        <clr-icon shape="tools"></clr-icon>
+      </a>
+      <a class=" nav-link nav-icon" routerLink='/admin/generice-medicine-supplier' routerLinkActive='active'>
+        <clr-icon shape="shopping-cart"></clr-icon>
+      </a>
+      <a class=" nav-link nav-icon" routerLink='/admin/packages' routerLinkActive='active'>
+        <clr-icon shape="archive"></clr-icon>
+      </a>
+    </div>
+    <div class="header-actions">
+        <clr-dropdown class="dropdown bottom-right">
+            <button class="nav-text" clrDropdownToggle>
+                {{ fullname }}
+                <clr-icon shape="caret down"></clr-icon>
+            </button>
+            <div class="dropdown-menu">
+                <a href="javascript://" clrDropdownItem>Preferences</a>
+                <a (click)="logout()" clrDropdownItem>Log out</a>
+            </div>
+        </clr-dropdown>
+    </div>
+  </clr-header>
+  <nav class="subnav">
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="javascript://" 
+        routerLink='/admin/labeler' routerLinkActive='active'>รายชื่อผู้ประกอบการ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript://" 
+        routerLink='/admin/generice-medicine' routerLinkActive='active'>ข้อมูลเวชภัณฑ์ยา</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript://" 
+        routerLink='/admin/generice-medicine-supplier' routerLinkActive='active'>ข้อมูลเวชภัณฑ์ไม่ใช่ยา</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="content-container">
+    <div class="content-area">
+      <router-outlet></router-outlet>
+    </div>
+
+    <nav class="sidenav" [clr-nav-level]="1">
+      <section class="sidenav-content">
+        <clr-tree-node [clrTreeNodeExpanded]="true">
+          เมนูหลัก
+          <clr-tree-node>
+            <button class="clr-treenode-link" routerLink='/admin/products' routerLinkActive='active'>
+              <clr-icon shape="shopping-cart"></clr-icon>
+              ข้อมูลชื่อทางการค้า
+            </button>
+          </clr-tree-node>
+          <clr-tree-node>
+            <button class="clr-treenode-link" routerLink='/admin/labeler' routerLinkActive='active'>
+              <clr-icon shape="group"></clr-icon>
+              รายชื่อผู้ประกอบการ
+            </button>
+          </clr-tree-node>
+          <clr-tree-node>
+            <button class="clr-treenode-link" routerLink='/admin/generice-medicine' routerLinkActive='active'>
+              <clr-icon shape="tools"></clr-icon>
+              ข้อมูลเวชภัณฑ์ยา
+            </button>
+          </clr-tree-node>
+          <clr-tree-node>
+            <button class="clr-treenode-link" routerLink='/admin/generice-medicine-supplier' routerLinkActive='active'>
+              <clr-icon shape="shopping-cart"></clr-icon>
+              ข้อมูลเวชภัณฑ์ไม่ใช่ยา
+            </button>
+          </clr-tree-node>
+          <clr-tree-node>
+            <button class="clr-treenode-link" routerLink='/admin/packages' routerLinkActive='active'>
+              <clr-icon shape="archive"></clr-icon>
+              ข้อมูล Packages
+            </button>
+          </clr-tree-node>
+        </clr-tree-node>
+
+        <clr-tree-node [clrTreeNodeExpanded]="true">
+          กำหนดข้อมูลพื้นฐาน
+          <clr-tree-node>
+            <button class="clr-treenode-link" routerLink='/admin/generice-dosages' routerLinkActive='active'>
+              <clr-icon shape="library"></clr-icon>
+              รูปแบบเวชภัณฑ์ยา
+            </button>
+          </clr-tree-node>
+          <clr-tree-node>
+            <button class="clr-treenode-link" routerLink='/admin/generice-types' routerLinkActive='active'>
+              <clr-icon shape="library"></clr-icon>
+              ชนิดเวชภัณฑ์ยา
+            </button>
+          </clr-tree-node>
+          <clr-tree-node>
+            <button class="clr-treenode-link" routerLink='/admin/generice-groups' routerLinkActive='active'>
+              <clr-icon shape="library"></clr-icon>
+              กลุ่มเวชภัณฑ์ยา
+            </button>
+          </clr-tree-node>
+          <clr-tree-node>
+            <button class="clr-treenode-link" routerLink='/admin/generice-supplier-types' routerLinkActive='active'>
+              <clr-icon shape="library"></clr-icon>
+              ประเภทเวชภัณฑ์ไม่ใช่ยา
+            </button>
+          </clr-tree-node>
+        </clr-tree-node>
+      </section>
+    </nav>
+
+  </div>
+
+</clr-main-container>
