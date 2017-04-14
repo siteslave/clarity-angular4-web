@@ -16,8 +16,9 @@ npm i
 ng serve
 ```
 
-app url `http://localhost:4200`
+app url `http://localhost:4200`  
 
+username: `admin` and password: `admin`
 ## Building
 
 ```
