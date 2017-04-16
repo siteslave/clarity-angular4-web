@@ -6,6 +6,7 @@ import { ClarityModule } from 'clarity-angular';
 import { AdminRoutingModule } from './admin-routing.module';
 import { MainPageComponent } from './main-page/main-page.component';
 import { HelperModule } from '../helper/helper.module';
+import { AuthModule } from '../auth/auth.module';
 
 import { MainService } from './main.service';
 import { AlertService } from '../alert.service';
@@ -17,7 +18,8 @@ import { LayoutComponent } from './layout/layout.component';
     AdminRoutingModule,
     HelperModule,
     FormsModule,
-    ClarityModule
+    ClarityModule,
+    AuthModule
   ],
   declarations: [MainPageComponent, LayoutComponent],
   providers: [
