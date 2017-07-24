@@ -32,10 +32,12 @@ export class LoginPageComponent implements OnInit {
     }
   }
 
-  doLogin() {
-    this.isLogging = true;
-    this.loginService.testLogin(this.username, this.password)
-      .then((token: string) => {
+  async doLogin() {
+
+    try {
+      this.isLogging = true;
+      const token: any = await this.loginService.testLogin(this.username, this.password);
+      if (token) {
         const decodedToken = this.jwtHelper.decodeToken(token);
         const fullname = `${decodedToken.firstname} ${decodedToken.lastname}`;
 
@@ -45,10 +47,13 @@ export class LoginPageComponent implements OnInit {
         this.isLogging = false;
         // redirect to admin module
         this.router.navigate(['admin']);
-      })
-      .catch((error) => {
+      } else {
         this.isLogging = false;
-        this.alert.error(JSON.stringify(error));
-      });
+        this.alert.error('ไม่สามารถล๊อกอินเข้าสู่ระบบได้');
+      }
+    } catch (error) {
+      this.isLogging = false;
+      this.alert.error(error.message);
+    }
   }
 }
