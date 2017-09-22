@@ -24,78 +24,50 @@
       </a>
     </div>
     <div class="header-actions">
-        <clr-dropdown class="dropdown bottom-right">
-            <button class="nav-text" clrDropdownToggle>
-                {{ fullname }}
-                <clr-icon shape="caret down"></clr-icon>
-            </button>
-            <div class="dropdown-menu">
-                <a href="javascript://" clrDropdownItem>Preferences</a>
-                <a (click)="logout()" clrDropdownItem>Log out</a>
-            </div>
-        </clr-dropdown>
+      <clr-dropdown class="dropdown bottom-right">
+        <button class="nav-text" clrDropdownToggle>
+          {{ fullname }}
+          <clr-icon shape="caret down"></clr-icon>
+        </button>
+        <div class="dropdown-menu">
+          <a href="javascript://" clrDropdownItem>Preferences</a>
+          <a (click)="logout()" clrDropdownItem>Log out</a>
+        </div>
+      </clr-dropdown>
     </div>
   </clr-header>
-  <nav class="subnav">
-    <ul class="nav">
-      <li class="nav-item">
-        <a class="nav-link" href="javascript://" 
-        routerLink='/admin/labeler' routerLinkActive='active'>รายชื่อผู้ประกอบการ</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="javascript://" 
-        routerLink='/admin/generice-medicine' routerLinkActive='active'>ข้อมูลเวชภัณฑ์ยา</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="javascript://" 
-        routerLink='/admin/generice-medicine-supplier' routerLinkActive='active'>ข้อมูลเวชภัณฑ์ไม่ใช่ยา</a>
-      </li>
-    </ul>
-  </nav>
 
   <div class="content-container">
     <div class="content-area">
       <router-outlet></router-outlet>
     </div>
 
-    <nav class="sidenav" [clr-nav-level]="1">
-      <section class="sidenav-content">
-        <clr-tree-node [clrTreeNodeExpanded]="true">
-          เมนูหลัก
-          <clr-tree-node>
-            <button class="clr-treenode-link" routerLink='/admin/products' routerLinkActive='active'>
-              <clr-icon shape="shopping-cart"></clr-icon>
-              ข้อมูลชื่อทางการค้า
-            </button>
-          </clr-tree-node>
-          <clr-tree-node>
-            <button class="clr-treenode-link" routerLink='/admin/labeler' routerLinkActive='active'>
-              <clr-icon shape="group"></clr-icon>
-              รายชื่อผู้ประกอบการ
-            </button>
-          </clr-tree-node>
-          <clr-tree-node>
-            <button class="clr-treenode-link" routerLink='/admin/generice-medicine' routerLinkActive='active'>
-              <clr-icon shape="tools"></clr-icon>
-              ข้อมูลเวชภัณฑ์ยา
-            </button>
-          </clr-tree-node>
-          <clr-tree-node>
-            <button class="clr-treenode-link" routerLink='/admin/generice-medicine-supplier' routerLinkActive='active'>
-              <clr-icon shape="shopping-cart"></clr-icon>
-              ข้อมูลเวชภัณฑ์ไม่ใช่ยา
-            </button>
-          </clr-tree-node>
-          <clr-tree-node>
-            <button class="clr-treenode-link" routerLink='/admin/packages' routerLinkActive='active'>
-              <clr-icon shape="archive"></clr-icon>
-              ข้อมูล Packages
-            </button>
-          </clr-tree-node>
-        </clr-tree-node>
-      </section>
-    </nav>
-
+    <clr-vertical-nav [clrVerticalNavCollapsible]="collapsible" [(clrVerticalNavCollapsed)]="collapsed">
+      <a clrVerticalNavLink routerLink="./normal" routerLinkActive="active">
+          <clr-icon clrVerticalNavIcon shape="user"></clr-icon>
+          Normal
+      </a>
+      <a clrVerticalNavLink routerLink="./electric" routerLinkActive="active">
+          <clr-icon clrVerticalNavIcon shape="bolt"></clr-icon>
+          Electric
+      </a>
+      <a clrVerticalNavLink routerLink="./poison" routerLinkActive="active">
+          <clr-icon clrVerticalNavIcon shape="sad-face"></clr-icon>
+          Poison
+      </a>
+      <a clrVerticalNavLink routerLink="./grass" routerLinkActive="active">
+          <clr-icon clrVerticalNavIcon shape="bug"></clr-icon>
+          Grass
+      </a>
+      <a clrVerticalNavLink routerLink="./fighting" routerLinkActive="active">
+          <clr-icon clrVerticalNavIcon shape="shield"></clr-icon>
+          Fighting
+      </a>
+      <a clrVerticalNavLink routerLink="./credit" routerLinkActive="active">
+          <clr-icon clrVerticalNavIcon shape="certificate"></clr-icon>
+          Credit
+      </a>
+  </clr-vertical-nav>
   </div>
 
 </clr-main-container>

@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class LayoutComponent implements OnInit {
 
   fullname: string;
+  collapsible: boolean = true;
+  collapsed: boolean = true;
 
   constructor(private router: Router) {
     this.fullname = sessionStorage.getItem('fullname');
